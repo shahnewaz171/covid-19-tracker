@@ -88,3 +88,13 @@ body{
 .country h1{
     font-size: 36px;
 }
+.covid-title{
+    padding: 16px 0px;
+}
+.all-info{
+    padding-bottom: 10px;
+}
+footer{
+    color: #a9a9a9;
+    margin-top: 8rem;
+}
