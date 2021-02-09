@@ -1,0 +1,11 @@
+@media (min-width: 992px){
+    .nav-link {
+        padding-right: 1.5rem !important;
+        padding-left: 1rem !important;
+    }
+}
+@media (max-width: 400px){
+    .main-count h1 {
+        font-size: 39px;
+    }
+}

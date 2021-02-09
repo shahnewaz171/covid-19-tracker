@@ -1,0 +1,90 @@
+body{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(/images/bg-image2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #13141b;
+    color: white;
+}
+.logo{
+    width: 38%;
+}
+.navbar-brand{
+    width: 58%;
+}
+.navbar-toggler {
+    border: none;
+}
+.single-result{
+    background: rgb(222 221 221 / 20%);
+    border-radius: 15px;
+}
+.btn {
+    border-radius: 1.5rem;
+    padding: 9px 16px;
+}
+.main-count{
+    text-align: center;
+    padding-top: 30px;
+}
+.main-count h1{
+    font-size: 40px;
+    font-weight: 300;
+    margin: 0;
+}
+.main-count span{
+    font-size: 54px;
+    margin-top: 15px;
+    font-weight: 700;
+}
+.main-info a{
+   text-decoration: underline;
+    color: #7db627;
+    transition: .3s;
+}
+.main-info a:hover{
+    color: rgb(107, 212, 107);
+}
+.recover span{
+    color: #99df31;
+}
+
+/*  */
+.card-body{
+    background-color: #4e3737;
+}
+.card-header{
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+.card-title{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+.card-text{
+    font-size: 13.5px;
+    color: #dedede;
+}
+.number-table{
+    font-size: 20px;
+    font-weight: bold;
+}
+.number-des{
+    font-size: 13px;
+    color: #dedede;
+}
+.text-orange{
+    color: #ff6a00;
+}
+.text-green{
+    color: #99df31;
+}
+.text-color{
+    color: #8fb1ff;
+}
+.country h1{
+    font-size: 36px;
+}
