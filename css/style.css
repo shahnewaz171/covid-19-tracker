@@ -131,3 +131,6 @@ footer{
     flex-direction: row-reverse;
     justify-content: center;
 }
+.table td, .table th{
+    padding: .70rem !important;
+}

@@ -53,6 +53,7 @@ const showAllCountry = () => {
 const renderAllCountry = allCountry => {
     const all =document.getElementById("table-body");
     document.getElementById('world-info').style.display = 'none';
+    document.getElementById('single-info').style.display = 'none';
     document.getElementById('allInfo').style.display = 'block';
     document.getElementById('home').style.color = 'rgba(255,255,255,.5)';
 
