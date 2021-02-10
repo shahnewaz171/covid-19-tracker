@@ -25,7 +25,6 @@ const showWorldInfo = (worldCases) => {
     document.getElementById('close-cases').innerText = worldCases.cases - worldCases.active;
     document.getElementById('recovery').innerText = worldCases.recovered;
     document.getElementById('total-deaths').innerText =  worldCases.deaths;
-
 };
 
 
@@ -57,15 +56,15 @@ const renderAllCountry = allCountry => {
     document.getElementById('home').style.color = 'rgba(255,255,255,.5)';
 
     allCountry.forEach(cases => {
-        console.log(cases);
+        // console.log(cases);
 
         const listDiv = document.createElement('tr');
         const countryInfo = `
-            <td>${cases.country}</td>
+            <td  onclick="showSingleCountry('${cases.country}')"class="countryList">${cases.country}</td>
             <td>${cases.cases}</td>
-            <td>${cases.todayCases}</td>
+            <td class="new-cases">+${cases.todayCases}</td>
             <td>${cases.deaths}</td>
-            <td>${cases.todayDeaths}</td>
+            <td class="bg-red">+${cases.todayDeaths}</td>
             <td>${cases.recovered}</td>
             <td>${cases.active}</td>
             <td>${cases.critical}</td>
@@ -76,4 +75,40 @@ const renderAllCountry = allCountry => {
         listDiv.innerHTML = countryInfo;
         all.appendChild(listDiv);
     });
+
 };
+
+//===single Country Info===//
+const showSingleCountry = async countryName => {
+
+    const url = `https://disease.sh/v3/covid-19/countries/${countryName}`;
+
+    const response = await fetch(url);
+    const data = await response.json();
+    singleCountryInfo(data);
+
+    // fetch('https://disease.sh/v3/covid-19/countries')
+    // .then(Response => Response.json())
+    // .then(data => {
+    //     // console.log(data);
+    //     singleCountryInfo(data[0]);
+        
+    // });
+};
+
+const singleCountryInfo = singleCountry => {
+    
+    console.log(singleCountry);
+    document.getElementById('allInfo').style.display = 'none';
+    document.getElementById('single-info').style.display = 'block';
+
+    document.getElementById('country-name').innerHTML = singleCountry.country;
+    document.getElementById('single-cases').innerHTML = singleCountry.cases;
+    document.getElementById('single-deaths').innerHTML = singleCountry.deaths;
+    document.getElementById('single-recovered').innerHTML = singleCountry.recovered;
+
+    //===Single Country Close Cases===
+    document.getElementById('countryCloseCases').innerText = singleCountry.cases - singleCountry.active;
+    document.getElementById('country-recovery').innerText = singleCountry.recovered;
+    document.getElementById('country-deaths').innerText =  singleCountry.deaths;
+}

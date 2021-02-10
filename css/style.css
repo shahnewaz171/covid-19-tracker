@@ -107,3 +107,17 @@ footer{
 #allInfo{
     display: none;
 }
+.bg-red{
+    background-color: rgb(146, 11, 11);
+    border-left: none;
+}
+.new-cases{
+    background-color: rgb(128 78 70);
+}
+.countryList{
+    cursor: pointer;
+    color: #7ab2e2;
+}
+.single-info{
+    display: none;
+}
