@@ -23,10 +23,10 @@
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a id="home" class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Country</a>
+                        <a onclick="showAllCountry()" class="nav-link" href="#">Country</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Global Cases</a>
@@ -43,7 +43,7 @@
         </nav>
 
         <main class="content-area">
-            <div id="world-info" class="search-result col-md-10 mx-auto py-4 d-block">
+            <div id="world-info" class="search-result col-md-10 mx-auto py-4">
                 <div class="single-result row align-items-center my-3">
                     <div id="country" class="d-none text-center col-12 country">
                         <h1>
@@ -57,7 +57,7 @@
                             <span id="world-cases"></span>
                         </div>
                         <div class="text-center">
-                            <a href="#">view by country</a>
+                            <a onclick="showAllCountry()" href="#">view by country</a>
                         </div>
                         <div class="main-count">
                             <h1>Deaths:</h1>
@@ -112,16 +112,15 @@
 
 
             <!-- ALl countries -->
-            <div class="d-none search-result col-md-12 mx-auto py-4">
+            <div class="search-result col-md-12 mx-auto py-4" id="allInfo">
                 <div class="single-result-two align-items-center my-3 all-info">
                    <div class="text-center covid-title">
-                        <h2>Coronavirus Live Updates Of The World</h1>
+                        <h2>World Coronavirus Live Updates</h1>
                    </div>
                    <table class="table text-white table-bordered mt-3 col-md-11 mx-auto">
                        <thead class="bg-dark">
                            <tr> 
-                                <th scope="col">###</th>
-                                <th scope="col">All Country</th>
+                                <th scope="col">Country, Others</th>
                                 <th scope="col">Total Cases</th>
                                 <th scope="col">New Cases</th>
                                 <th scope="col">Total Deaths</th>
@@ -130,26 +129,12 @@
                                 <th scope="col">Active Cases</th>
                                 <th scope="col">Serious, Critical</th>
                                 <th scope="col">Total Test</th>
-                                <th scope="col">Population</th>
+                                <th scope="col">Total Population</th>
+                                <th scope="col">Continent</th>
                            </tr>
                        </thead>
-                       <tbody>
-                           <tr>
-                               <th scope="row">1</th>
-                               <td>A</td>
-                               <td>A</td>
-                               <td>A</td>
-                               <td>A</td>
-                               <td>A</td>
-                               <td>A</td>
-                               <td>A</td>
-                               <td>A</td>
-                               <td>A</td>
-                               <td>A</td>
-                           </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                            </tr>
+                       <tbody id="table-body">
+                           
                        </tbody>
                    </table>
                 </div>

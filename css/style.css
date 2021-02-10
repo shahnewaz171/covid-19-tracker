@@ -101,3 +101,9 @@ footer{
     color: #a9a9a9;
     margin-top: 8rem;
 }
+#world-cases{
+    color: #aaa9a9;
+}
+#allInfo{
+    display: none;
+}
