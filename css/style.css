@@ -121,3 +121,14 @@ footer{
 .single-info{
     display: none;
 }
+.country-image{
+    display: inline;
+}
+#country{
+    width: 100%;
+}
+#country-name{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}

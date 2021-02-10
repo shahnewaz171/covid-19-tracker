@@ -47,8 +47,7 @@ const showAllCountry = () => {
         // console.log(data);
         renderAllCountry(data);
     });
-}
-
+};
 const renderAllCountry = allCountry => {
     const all =document.getElementById("table-body");
     document.getElementById('world-info').style.display = 'none';
@@ -97,12 +96,13 @@ const showSingleCountry = async countryName => {
 };
 
 const singleCountryInfo = singleCountry => {
-    
+    const countryImg = document.getElementById('country-name');
     console.log(singleCountry);
     document.getElementById('allInfo').style.display = 'none';
     document.getElementById('single-info').style.display = 'block';
+    document.getElementById('all-country').style.color = '#fff';
 
-    document.getElementById('country-name').innerHTML = singleCountry.country;
+    //Single Country Info
     document.getElementById('single-cases').innerHTML = singleCountry.cases;
     document.getElementById('single-deaths').innerHTML = singleCountry.deaths;
     document.getElementById('single-recovered').innerHTML = singleCountry.recovered;
@@ -111,4 +111,14 @@ const singleCountryInfo = singleCountry => {
     document.getElementById('countryCloseCases').innerText = singleCountry.cases - singleCountry.active;
     document.getElementById('country-recovery').innerText = singleCountry.recovered;
     document.getElementById('country-deaths').innerText =  singleCountry.deaths;
-}
+
+     
+    const singleDiv = document.createElement('div');
+    singleDiv.className = 'country-image';
+    const countryImage = `
+        <img src="${singleCountry.countryInfo.flag}" alt="country-logo" width="60">
+        <div class="d-inline">${singleCountry.country}</div>
+    `;
+    singleDiv.innerHTML = countryImage;
+    countryImg.appendChild(singleDiv);
+};
