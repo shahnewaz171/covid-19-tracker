@@ -29,10 +29,10 @@
                         <a class="nav-link" href="#">Country</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cases</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Global Cases</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="#">Active Cases</a>
-                            <a class="dropdown-item" href="#">Close Cases</a>
+                            <a class="dropdown-item" href="#active">Active Cases</a>
+                            <a class="dropdown-item" href="#close">Close Cases</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -43,67 +43,64 @@
         </nav>
 
         <main class="content-area">
-            <div class="search-result col-md-10 mx-auto py-4 d-none">
+            <div id="world-info" class="search-result col-md-10 mx-auto py-4 d-block">
                 <div class="single-result row align-items-center my-3">
-                    <div class="text-center col-12 country">
+                    <div id="country" class="d-none text-center col-12 country">
                         <h1>
                             <div><img src="" alt=""></div>
                             Bangladesh
                         </h1>
                     </div>
                     <div class="col-md-12 main-info mb-5">
-                        <div class="main-count">
+                        <div id="main-count" class="main-count">
                             <h1>Coronavirus Cases:</h1>
-                            <span>107,212,738</span>
+                            <span id="world-cases"></span>
                         </div>
                         <div class="text-center">
                             <a href="#">view by country</a>
                         </div>
                         <div class="main-count">
                             <h1>Deaths:</h1>
-                            <span>2,342,647</span>
+                            <span id="world-deaths"></span>
                         </div>
                         <div class="main-count recover">
                             <h1>Recovered:</h1>
-                            <span>79,037,310</span>
+                            <span id="world-recovered"></span>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div id="active" class="col-md-6">
                         <div class="card text-white mb-3">
                             <span class="card-header bg-dark text-center">active case</span>
                             <div class="card-body text-center">
-                                <h5 class="card-title">25,685,120</h5>
+                                <h5 id="active-cases" class="card-title"></h5>
                                 <p class="card-text">Currently Infected Patients</p>
                                 <div class="mt-4 d-flex">
                                     <div class="col-6">
-                                        <span class="number-table text-color">25,730,062</span>
-                                        <strong> (99.6%)</strong>
-                                        <p class="number-des">in Mild Condition</p>
+                                        <span id="cases" class="number-table text-color"></span>
+                                
+                                        <p class="number-des">World Cases</p>
                                     </div>
                                     <div class="col-6">
-                                        <span class="number-table text-orange">102,719</span>
-                                        <strong> (0.4%)</strong>
+                                        <span id="critical-cases" class="number-table text-orange"></span>
                                         <p class="number-des">Serious or Critical</p>
                                     </div>
                                 </div>
                             </div>
                           </div>
                     </div>
-                    <div class="col-md-6">
+                    <div id="close" class="col-md-6">
                         <div class="card text-white mb-3">
                             <span class="card-header bg-dark text-center">close case</span>
                             <div class="card-body text-center">
-                                <h5 class="card-title">81,527,618</h5>
+                                <h5 id="close-cases" class="card-title"></h5>
                                 <p class="card-text">Cases which had an outcome:</p>
                                 <div class="mt-4 d-flex">
                                     <div class="col-6">
-                                        <span class="number-table text-green">79,037,310</span>
-                                        <strong> (97%)</strong>
+                                        <span id="recovery"  class="number-table text-green"></span>
                                         <p class="number-des">Recovered / Discharged</p>
                                     </div>
                                     <div class="col-6">
-                                        <span class="number-table">2,342,647</span>
-                                        <strong> (3%)</strong>
+                                        <span id="total-deaths" class="number-table"></span>
                                         <p class="number-des">Deaths</p>
                                     </div>
                                 </div>
@@ -113,9 +110,9 @@
                 </div>
             </div>
 
-            
+
             <!-- ALl countries -->
-            <div class="search-result col-md-12 mx-auto py-4">
+            <div class="d-none search-result col-md-12 mx-auto py-4">
                 <div class="single-result-two align-items-center my-3 all-info">
                    <div class="text-center covid-title">
                         <h2>Coronavirus Live Updates Of The World</h1>
@@ -152,16 +149,6 @@
                            </tr>
                             <tr>
                                 <th scope="row">2</th>
-                                <td>B</td>
-                                <td>B</td>
-                                <td>B</td>
-                                <td>B</td>
-                                <td>B</td>
-                                <td>B</td>
-                                <td>B</td>
-                                <td>B</td>
-                                <td>B</td>
-                                <td>B</td>
                             </tr>
                        </tbody>
                    </table>

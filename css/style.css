@@ -7,6 +7,9 @@ body{
     background-color: #13141b;
     color: white;
 }
+html{
+    scroll-behavior: smooth;
+}
 .logo{
     width: 38%;
 }
