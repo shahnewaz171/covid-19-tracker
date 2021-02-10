@@ -3,7 +3,8 @@ fetch('https://disease.sh/v3/covid-19/all')
     .then(data => {
         // console.log(data);
         showWorldInfo(data);
-});
+    })
+    .catch(error => alert('Error'));
 
 const showWorldInfo = (worldCases) => {
     const worldInfo = document.getElementById('world-info');
@@ -46,7 +47,8 @@ const showAllCountry = () => {
     .then(data => {
         // console.log(data);
         renderAllCountry(data);
-    });
+    })
+    .catch(error => alert('Error'));
 };
 const renderAllCountry = allCountry => {
     const all =document.getElementById("table-body");
@@ -79,13 +81,15 @@ const renderAllCountry = allCountry => {
 
 //===single Country Info===//
 const showSingleCountry = async countryName => {
-
     const url = `https://disease.sh/v3/covid-19/countries/${countryName}`;
-
-    const response = await fetch(url);
-    const data = await response.json();
-    singleCountryInfo(data);
-
+    try{
+        const response = await fetch(url);
+        const data = await response.json();
+        singleCountryInfo(data);
+    }
+    catch (error) {
+        alert('Error');
+    }
     // fetch('https://disease.sh/v3/covid-19/countries')
     // .then(Response => Response.json())
     // .then(data => {
@@ -98,6 +102,7 @@ const showSingleCountry = async countryName => {
 const singleCountryInfo = singleCountry => {
     const countryImg = document.getElementById('country-name');
     console.log(singleCountry);
+    document.getElementById('country-name').innerHTML = "";
     document.getElementById('allInfo').style.display = 'none';
     document.getElementById('single-info').style.display = 'block';
     document.getElementById('all-country').style.color = '#fff';

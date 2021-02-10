@@ -13,3 +13,11 @@
         font-size: 39px;
     }
 }
+@media (max-width: 991px){
+    .logo {
+        width: 70%;
+    }
+    .navbar-nav a{
+        font-size: 22px;
+    }
+}
