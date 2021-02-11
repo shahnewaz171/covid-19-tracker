@@ -115,7 +115,13 @@ footer{
 }
 .countryList{
     cursor: pointer;
-    color: #7ab2e2;
+    color: #78e018;
+    transition: .3s;
+    /* text-decoration: underline; */
+    font-family: noto sans,sans-serif;
+}
+.countryList:hover{
+    color: #56a011;
 }
 .single-info{
     display: none;
