@@ -1,215 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Covid-19 Tracker</title>
     <!-- Bootstrap CSSk -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
     <style>
-        body{
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(images/bg-image2.jpg);
-        }
+      body {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.8)
+          ),
+          url(images/bg-image2.jpg);
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark mt-4 ">
-            <a class="navbar-brand" href="index.html">
-                <img src="images/logo.png" alt="logo" class="logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
-                <img src="images/toggler-icon.svg" alt="">
-            </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a id="home" class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="all-country" onclick="showAllCountry()" class="nav-link" href="#">Country</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Global Cases</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="#active">Active Cases</a>
-                            <a class="dropdown-item" href="#close">Close Cases</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+      <nav class="navbar navbar-expand-lg navbar-dark mt-4">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo.png" alt="logo" class="logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapsibleNavId"
+          aria-controls="collapsibleNavId"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <img src="images/toggler-icon.svg" alt="" />
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a id="home" class="nav-link" href="index.html"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                id="all-country"
+                onclick="showAllCountry()"
+                class="nav-link"
+                href="#"
+                >Country</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="dropdownId"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Global Cases</a
+              >
+              <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="#active">Active Cases</a>
+                <a class="dropdown-item" href="#close">Close Cases</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
-        <main class="content-area">
-            <div id="world-info" class="search-result col-md-10 mx-auto py-4">
-                <div class="single-result row align-items-center my-3">
-                    <div id="country" class="d-none text-center col-12 country">
-                        <h1>
-                            <div><img src="" alt=""></div>
-                            Bangladesh
-                        </h1>
+      <main class="content-area">
+        <div id="world-info" class="search-result col-md-10 mx-auto py-4">
+          <div class="single-result row align-items-center my-3">
+            <div id="country" class="d-none text-center col-12 country">
+              <h1>
+                <div><img src="" alt="" /></div>
+                Bangladesh
+              </h1>
+            </div>
+            <div class="col-md-12 main-info mb-5">
+              <div id="main-count" class="main-count">
+                <h1>Coronavirus Cases:</h1>
+                <span id="world-cases"></span>
+              </div>
+              <div class="text-center">
+                <a onclick="showAllCountry()" href="#">view by country</a>
+              </div>
+              <div class="main-count">
+                <h1>Deaths:</h1>
+                <span id="world-deaths"></span>
+              </div>
+              <div class="main-count recover">
+                <h1>Recovered:</h1>
+                <span id="world-recovered"></span>
+              </div>
+            </div>
+            <div id="active" class="col-md-6">
+              <div class="card text-white mb-3">
+                <span class="card-header bg-dark text-center">active case</span>
+                <div class="card-body text-center">
+                  <h5 id="active-cases" class="card-title"></h5>
+                  <p class="card-text">Currently Infected Patients</p>
+                  <div class="mt-4 d-flex">
+                    <div class="col-6">
+                      <span id="cases" class="number-table text-color"></span>
+
+                      <p class="number-des">World Cases</p>
                     </div>
-                    <div class="col-md-12 main-info mb-5">
-                        <div id="main-count" class="main-count">
-                            <h1>Coronavirus Cases:</h1>
-                            <span id="world-cases"></span>
-                        </div>
-                        <div class="text-center">
-                            <a onclick="showAllCountry()" href="#">view by country</a>
-                        </div>
-                        <div class="main-count">
-                            <h1>Deaths:</h1>
-                            <span id="world-deaths"></span>
-                        </div>
-                        <div class="main-count recover">
-                            <h1>Recovered:</h1>
-                            <span id="world-recovered"></span>
-                        </div>
+                    <div class="col-6">
+                      <span
+                        id="critical-cases"
+                        class="number-table text-orange"
+                      ></span>
+                      <p class="number-des">Serious or Critical</p>
                     </div>
-                    <div id="active" class="col-md-6">
-                        <div class="card text-white mb-3">
-                            <span class="card-header bg-dark text-center">active case</span>
-                            <div class="card-body text-center">
-                                <h5 id="active-cases" class="card-title"></h5>
-                                <p class="card-text">Currently Infected Patients</p>
-                                <div class="mt-4 d-flex">
-                                    <div class="col-6">
-                                        <span id="cases" class="number-table text-color"></span>
-                                
-                                        <p class="number-des">World Cases</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <span id="critical-cases" class="number-table text-orange"></span>
-                                        <p class="number-des">Serious or Critical</p>
-                                    </div>
-                                </div>
-                            </div>
-                          </div>
-                    </div>
-                    <div id="close" class="col-md-6">
-                        <div class="card text-white mb-3">
-                            <span class="card-header bg-dark text-center">close case</span>
-                            <div class="card-body text-center">
-                                <h5 id="close-cases" class="card-title"></h5>
-                                <p class="card-text">Cases which had an outcome:</p>
-                                <div class="mt-4 d-flex">
-                                    <div class="col-6">
-                                        <span id="recovery"  class="number-table text-green"></span>
-                                        <p class="number-des">Recovered / Discharged</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <span id="total-deaths" class="number-table"></span>
-                                        <p class="number-des">Deaths</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-
-
-            <!-- ALl countries -->
-            <div class="search-result col-md-12 mx-auto py-4" id="allInfo">
-                <div class="single-result-two align-items-center my-3 all-info">
-                   <div class="text-center covid-title">
-                        <h2>World Coronavirus Live Updates</h1>
-                   </div>
-                   <table class="table text-white table-bordered mt-3 col-md-11 mx-auto">
-                       <thead class="bg-dark">
-                           <tr> 
-                                <th scope="col">Country, Others</th>
-                                <th scope="col">Total Cases</th>
-                                <th scope="col">New Cases</th>
-                                <th scope="col">Total Deaths</th>
-                                <th scope="col">New Deaths</th>
-                                <th scope="col">Total Recovered</th>
-                                <th scope="col">Active Cases</th>
-                                <th scope="col">Serious, Critical</th>
-                                <th scope="col">Total Test</th>
-                                <th scope="col">Total Population</th>
-                                <th scope="col">Continent</th>
-                           </tr>
-                       </thead>
-                       <tbody id="table-body">
-                           
-                       </tbody>
-                   </table>
+            <div id="close" class="col-md-6">
+              <div class="card text-white mb-3">
+                <span class="card-header bg-dark text-center">close case</span>
+                <div class="card-body text-center">
+                  <h5 id="close-cases" class="card-title"></h5>
+                  <p class="card-text">Cases which had an outcome:</p>
+                  <div class="mt-4 d-flex">
+                    <div class="col-6">
+                      <span
+                        id="recovery"
+                        class="number-table text-green"
+                      ></span>
+                      <p class="number-des">Recovered / Discharged</p>
+                    </div>
+                    <div class="col-6">
+                      <span id="total-deaths" class="number-table"></span>
+                      <p class="number-des">Deaths</p>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
+        </div>
 
+        <!-- ALl countries -->
+        <div class="search-result col-md-12 mx-auto py-4" id="allInfo">
+          <div class="single-result-two align-items-center my-3 all-info">
+            <div class="text-center covid-title">
+              <h2>World Coronavirus Live Updates</h2>
+            </div>
+            <table
+              class="table text-white table-bordered mt-3 col-md-11 mx-auto"
+            >
+              <thead class="bg-dark">
+                <tr>
+                  <th scope="col">Country, Others</th>
+                  <th scope="col">Total Cases</th>
+                  <th scope="col">New Cases</th>
+                  <th scope="col">Total Deaths</th>
+                  <th scope="col">New Deaths</th>
+                  <th scope="col">Total Recovered</th>
+                  <th scope="col">Active Cases</th>
+                  <th scope="col">Serious, Critical</th>
+                  <th scope="col">Total Test</th>
+                  <th scope="col">Total Population</th>
+                  <th scope="col">Continent</th>
+                </tr>
+              </thead>
+              <tbody id="table-body"></tbody>
+            </table>
+          </div>
+        </div>
 
-
-            <!-- Single Country Details -->
-            <div id="single-info" class="search-result col-md-10 mx-auto py-4 single-info">
-                <div class="single-result row align-items-center my-3">
-                    <div id="country" class="text-center col-12 country">
-                        <h1 id="country-name" class="mt-3 country-image">
-                           
-                            
-                        </h1>
+        <!-- Single Country Details -->
+        <div
+          id="single-info"
+          class="search-result col-md-10 mx-auto py-4 single-info"
+        >
+          <div class="single-result row align-items-center my-3">
+            <div id="country" class="text-center col-12 country">
+              <h1 id="country-name" class="mt-3 country-image"></h1>
+            </div>
+            <div class="col-md-12 main-info mb-5">
+              <div id="main-count" class="main-count">
+                <h1>Coronavirus Cases:</h1>
+                <span id="single-cases"></span>
+              </div>
+              <div class="text-center">
+                <a onclick="showAllCountry()" href="#">view by country</a>
+              </div>
+              <div class="main-count">
+                <h1>Deaths:</h1>
+                <span id="single-deaths"></span>
+              </div>
+              <div class="main-count recover">
+                <h1>Recovered:</h1>
+                <span id="single-recovered"></span>
+              </div>
+            </div>
+            <div id="close" class="col-md-6 mx-auto">
+              <div class="card text-white mb-3">
+                <span class="card-header bg-dark text-center">close case</span>
+                <div class="card-body text-center">
+                  <h5 id="countryCloseCases" class="card-title"></h5>
+                  <p class="card-text">Cases which had an outcome:</p>
+                  <div class="mt-4 d-flex">
+                    <div class="col-6">
+                      <span
+                        id="country-recovery"
+                        class="number-table text-green"
+                      ></span>
+                      <p class="number-des">Recovered / Discharged</p>
                     </div>
-                    <div class="col-md-12 main-info mb-5">
-                        <div id="main-count" class="main-count">
-                            <h1>Coronavirus Cases:</h1>
-                            <span id="single-cases"></span>
-                        </div>
-                        <div class="text-center">
-                            <a onclick="showAllCountry()" href="#">view by country</a>
-                        </div>
-                        <div class="main-count">
-                            <h1>Deaths:</h1>
-                            <span id="single-deaths"></span>
-                        </div>
-                        <div class="main-count recover">
-                            <h1>Recovered:</h1>
-                            <span id="single-recovered"></span>
-                        </div>
+                    <div class="col-6">
+                      <span id="country-deaths" class="number-table"></span>
+                      <p class="number-des">Deaths</p>
                     </div>
-                    <div id="close" class="col-md-6 mx-auto">
-                        <div class="card text-white mb-3">
-                            <span class="card-header bg-dark text-center">close case</span>
-                            <div class="card-body text-center">
-                                <h5 id="countryCloseCases" class="card-title"></h5>
-                                <p class="card-text">Cases which had an outcome:</p>
-                                <div class="mt-4 d-flex">
-                                    <div class="col-6">
-                                        <span id="country-recovery"  class="number-table text-green"></span>
-                                        <p class="number-des">Recovered / Discharged</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <span id="country-deaths" class="number-table"></span>
-                                        <p class="number-des">Deaths</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-        </main>
+          </div>
+        </div>
+      </main>
     </div>
 
     <footer class="text-center">
-        <p>This website made by &copy; Muhammad Shahnewaz, all right reserved.</p>
+      <p>This website made by &copy; Muhammad Shahnewaz, all right reserved.</p>
     </footer>
 
-
-    
     <!-- Optional JavaScript -->
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-H82D52SP9M"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-H82D52SP9M");
+    </script>
+
     <!-- Custom JavaScript Here -->
     <script src="js/app.js"></script>
-</body>
+  </body>
 </html>
